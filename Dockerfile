@@ -3,17 +3,12 @@ FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=US/Eastern
 
-RUN apt-get update
-RUN apt-get upgrade -y
-
-RUN apt-get install sudo curl git nodejs npm jq apache2 wget apt-utils -y
-
-RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-
-RUN git clone --branch master https://github.com/begleysm/quakejs.git
+RUN apt-get update &&\
+    apt-get install sudo curl git nodejs npm jq apache2 wget apt-utils -y &&\
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - &&\
+    git clone --branch master https://github.com/begleysm/quakejs.git
 WORKDIR /quakejs
-RUN npm install
-RUN ls
+RUN npm install && ls
 COPY server.cfg /quakejs/base/baseq3/server.cfg
 COPY server.cfg /quakejs/base/cpma/server.cfg
 # The two following lines are not necessary because we copy assets from include.  Leaving them here for continuity.
