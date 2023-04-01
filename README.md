@@ -1,9 +1,7 @@
 <div align="center">
     
-![logo](https://github.com/treyyoder/quakejs-docker/blob/master/quakejs-docker.png?raw=true)
+![logo](https://github.com/kablekarnage/quakejs-docker/blob/master/quakejs-docker.png?raw=true)
 # quakejs-docker 
-
-![Docker Image CI](https://github.com/treyyoder/quakejs-docker/workflows/Docker%20Image%20CI/badge.svg)
 </div>
 
 ### A fully local and Dockerized quakejs server. Independent, unadulterated, and free from the middleman.  
@@ -11,20 +9,20 @@
 The goal of this project was to create a fully independent quakejs server in Docker that does not require content to be served from the internet.
 Hence, once pulled, this does not need to connect to any external provider, ie. content.quakejs.com. Nor does this server need to be proxied/served/relayed from quakejs.com
 
-#### Simply pull the image [treyyoder/quakejs](https://hub.docker.com/r/treyyoder/quakejs)
+#### Simply pull the image [kablekarnage/quakejs](https://hub.docker.com/r/kablekarnage/quakejs)
 ```
-docker pull treyyoder/quakejs:latest
+docker pull kablekarnage/quakejs:latest
 ```
 #### and run it:
 
 ```
-docker run -d --name quakejs -e HTTP_PORT=<HTTP_PORT> -p <HTTP_PORT>:80 -p 27960:27960 treyyoder/quakejs:latest
+docker run -d --name quakejs -e HTTP_PORT=<HTTP_PORT> -p <HTTP_PORT>:80 -p 27960:27960 kablekarnage/quakejs:latest
 ```
 
 #### Example:
 
 ```
-docker run -d --name quakejs -e HTTP_PORT=8080 -p 8080:80 -p 27960:27960 treyyoder/quakejs:latest
+docker run -d --name quakejs -e HTTP_PORT=8080 -p 8080:80 -p 27960:27960 kablekarnage/quakejs:latest
 ```
 
 Send all you friends/coworkers the link: ex. http://localhost:8080 and start fragging ;)
@@ -43,7 +41,7 @@ services:
         ports:
             - '8080:80'
             - '27960:27960'
-        image: 'treyyoder/quakejs:latest'
+        image: 'kablekarnage/quakejs:latest'
 ```
 
 #### Building the Image
@@ -51,7 +49,7 @@ After pulling the repo, change both `Dockerfile` and `entrypoint.sh` from CRLF t
 
 Build the image with:
 
-`docker build --add-host=content.quakejs.com:127.0.0.1 -t treyyoder/quakejs:latest .`
+`docker build --add-host=content.quakejs.com:127.0.0.1 -t kablekarnage/quakejs:latest .`
 
 ## Credits:
 
