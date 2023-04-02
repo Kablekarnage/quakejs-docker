@@ -1,0 +1,14 @@
+version: '2'
+services:
+    quakejs:
+        container_name: custom_quakejs
+        environment:
+            - HTTP_PORT=8080
+        ports:
+            - '8080:80'
+            - '27960:27960'
+        image: 'kablekarnage/quakejs:latest'
+        volumes:
+            - ./custom_server.cfg:/quakejs/base/baseq3/server.cfg:ro
+            - ./custom_server.cfg:/quakejs/base/cpma/server.cfg:ro
+            - ./custom_entrypoint.sh:/entrypoint.sh:ro
